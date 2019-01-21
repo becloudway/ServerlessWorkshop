@@ -1,12 +1,12 @@
-# Serverless workshop ITP 23/01/2019
+# Serverless workshop
 
 ## General information
 
 During the workshop, you will all create AWS resources on the same account. Hence, you should prefix all names for all resources
 you create with your own identifier. For example, if an AWS Lambda function is to be created, it should be called `<identifier>-lambda-fn-name`.
 
-The account which will be used during the workshop is the `cloudway-depesst` account. You will receive information on how to log
-in to the account during the workshop. Initially, everything can be done on the platform itself, without the need to setup any client side tools.
+The account and users which will be used during the workshop, will be communicated at that time.
+Initially, everything can be done on the platform itself, without the need to setup any client side tools.
 However, you are of course free to try them out if there's any time left. 
 
 ## Use cases
