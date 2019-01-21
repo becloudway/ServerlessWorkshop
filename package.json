@@ -1,0 +1,17 @@
+{
+  "name": "serverlessworkshopitp",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/becloudway/ServerlessWorkshopITP.git"
+  },
+  "dependencies": {
+    "connect": "^3.6.6",
+    "http": "0.0.0",
+    "swagger-tools": "^0.10.4",
+    "yamljs": "^0.3.0"
+  }
+}

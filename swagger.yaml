@@ -1,0 +1,82 @@
+swagger: "2.0"
+info:
+  description: "Serverless Workshop - example API"
+  version: "1.0.0"
+  title: "Example API"
+basePath: "/api"
+schemes:
+  - "https"
+paths:
+  /signin:
+    post:
+      summary: "Sign in a visitor"
+      description: ""
+      operationId: "signIn"
+      consumes:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Sign in user object"
+          required: true
+          schema:
+            $ref: "#/definitions/signInUser"
+      responses:
+        204:
+          description: "Success"
+        400:
+          description: "Invalid input"
+  /signout:
+    post:
+      summary: "Sign out a visitor"
+      description: ""
+      operationId: "signOut"
+      consumes:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Sign out user object"
+          required: true
+          schema:
+            $ref: "#/definitions/signOutUser"
+      responses:
+        204:
+          description: "Success"
+        400:
+          description: "Invalid input"
+        404:
+          description: "User not found"
+  /list:
+    get:
+      summary: "Get list of signed in users"
+      description: ""
+      operationId: "getList"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "List of signed in users"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/signInUser"
+definitions:
+  signInUser:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      email:
+        type: "string"
+        format: "email"
+      company:
+        type: "string"
+      contactPerson:
+        type: "string"
+  signOutUser:
+    type: "object"
+    properties:
+      email:
+        type: "string"
+        format: "email"
