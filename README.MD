@@ -9,6 +9,8 @@ The account and users which will be used during the workshop, will be communicat
 Initially, everything can be done on the platform itself, without the need to setup any client side tools.
 However, you are of course free to try them out if there's any time left. 
 
+During the workshop, we will be using DynamoDB as a storage solution for which each participant will use their own table.
+
 ## Use cases
 
 For the workshop, we will be recreating the sign in application of the ITP offices in Ghent.
@@ -39,8 +41,7 @@ well using a (mocked) NFC tag. You can also check out AWS SAM and AWS CloudForma
 
 On this repo, a simple frontend is provided to allow you to simply test the application with it. A swagger file is also available,
 providing documentation for the implementation of the UI. However, you are not bound by the swagger specification and you may 
-change whatever you like to the REST service to enable some custom features. You will each run
-your own front-end using AWS S3.
+change whatever you like to the REST service to enable some custom features. You will each run your own front-end using AWS S3.
 
 ## Useful links
 
@@ -50,5 +51,6 @@ your own front-end using AWS S3.
 * AWS SAM: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md
 * AWS IoT: https://docs.aws.amazon.com/iot/latest/developerguide/what-is-aws-iot.html
 * AWS S3: https://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html
+* Amazon DynamoDB: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html
 
 
