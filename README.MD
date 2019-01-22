@@ -13,7 +13,7 @@ During the workshop, we will be using DynamoDB as a storage solution for which e
 
 ## Use cases
 
-For the workshop, we will be recreating the sign in application of the ITP offices in Ghent.
+For the workshop, we will be recreating a simple sign in application which can be used in an office to keep track of visitors.
 This will be done using the serverless services from AWS, including AWS Lambda and Amazon API Gateway.
 
 ### Use case 1
