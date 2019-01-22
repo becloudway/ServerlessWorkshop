@@ -1,0 +1,104 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        section {
+            padding-bottom: 10px;
+            margin-bottom: 5px;
+            border-bottom: 3px solid #e9ecef;
+        }
+
+    </style>
+</head>
+<body class="container">
+
+<section class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Serverless Workshop demo page</h1>
+    </div>
+</section>
+
+<section class="container">
+    <h1>Signing in</h1>
+    <form action="javascript:signIn()">
+        <div class="form-group">
+            <label for="nameInput">Full name</label>
+            <input type="text" class="form-control" id="nameInput">
+        </div>
+        <div class="form-group">
+            <label for="emailInput">Email address</label>
+            <input type="email" class="form-control" id="emailInput">
+        </div>
+        <div class="form-group">
+            <label for="companyInput">Company</label>
+            <input type="text" class="form-control" id="companyInput">
+        </div>
+        <div class="form-group">
+            <label for="contactInput">Contact person</label>
+            <input type="text" class="form-control" id="contactInput">
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+</section>
+
+<section class="container">
+    <h1>Signing out</h1>
+    <form action="javascript:signOut()">
+        <div class="form-group">
+            <label for="emailSignOutInput">Email address</label>
+            <input type="email" class="form-control" id="emailSignOutInput">
+        </div>
+        <button type="submit" class="btn btn-primary">Sign out</button>
+    </form>
+</section>
+
+<section class="container">
+    <h1>Get list of current users</h1>
+    <form action="javascript:retrieveList()">
+        <button type="submit" class="btn btn-primary">Get list</button>
+    </form>
+    <div id="list_placeholder"></div>
+</section>
+
+<script type="text/javascript">
+
+    const API_URL = "https://REPLACE_URL/api";
+
+    function signIn() {
+        const inputElements = document.forms[0].elements;
+        const data = {
+            email: inputElements.emailInput.value,
+            name: inputElements.nameInput.value,
+            company: inputElements.companyInput.value,
+            contactPerson: inputElements.contactInput.value,
+        };
+        fetch(`${API_URL}/signin`, {method: 'post', body: JSON.stringify(data)})
+            .then(response => response.json())
+            .then(console.log)
+            .catch(console.error);
+    }
+
+    function signOut() {
+        const inputElements = document.forms[1].elements;
+        const data = {
+            email: inputElements.emailSignOutInput.value,
+        };
+        fetch(`${API_URL}/signout`, {method: 'post', body: JSON.stringify(data)})
+            .then(response => response.json())
+            .then(console.log)
+            .catch(console.error);
+    }
+
+    function retrieveList() {
+        fetch(`${API_URL}/list`, {method: 'get'})
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('list_placeholder').innerText = JSON.stringify(data);
+            })
+            .catch(console.error);
+    }
+</script>
+
+</body>
+</html>
